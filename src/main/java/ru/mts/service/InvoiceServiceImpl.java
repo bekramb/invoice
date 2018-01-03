@@ -2,7 +2,7 @@ package ru.mts.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.mts.model.Item;
+import ru.mts.model.*;
 import ru.mts.repository.InvoiceRepository;
 
 import java.util.List;
@@ -11,10 +11,30 @@ import java.util.List;
 public class InvoiceServiceImpl implements InvoiceService {
 
     @Autowired
-    InvoiceRepository invoiceRepository;
+    private InvoiceRepository invoiceRepository;
 
     @Override
-    public List<Item> getAll() {
-        return invoiceRepository.getAll();
+    public List<Product> getAllProduct() {
+        return invoiceRepository.getAllProduct();
+    }
+
+    @Override
+    public List<Seller> getAllSeller() {
+        return invoiceRepository.getAllSeller();
+    }
+
+    @Override
+    public List<Customer> getAllCustomer() {
+        return invoiceRepository.getAllCustomer();
+    }
+
+    @Override
+    public List<Invoice> getAllInvoice() {
+        return invoiceRepository.getAllInvoice();
+    }
+
+    @Override
+    public List<Invoice> getInvoiceByName(String name) {
+        return invoiceRepository.getInvoiceByName(name);
     }
 }

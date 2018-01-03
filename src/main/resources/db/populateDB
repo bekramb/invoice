@@ -1,7 +1,0 @@
-
-INSERT INTO `testdb`.`customer` (`firs_name`, `last_name`, `street`, `postal_code`, `city`, `country`) VALUES ('Иван', 'Иванов', 'Советская', '125330', 'Москва', 'Россия');
-INSERT INTO `testdb`.`customer` (`firs_name`, `last_name`, `street`, `postal_code`, `city`, `country`) VALUES ('Петр', 'Петров', 'Зенитчиков', '125340', 'Москва', 'Россия');
-
-
-INSERT INTO `testdb`.`seller` (`firs_name`, `last_name`, `street`, `postal_code`, `city`, `country`) VALUES ('Николай', 'Сидоров', 'Гагарина', '125320', 'Москва', 'Россия');
-INSERT INTO `testdb`.`seller` (`firs_name`, `last_name`, `street`, `postal_code`, `city`, `country`) VALUES ('Иван', 'Сорокин', 'Тушинская', '125360', 'Москва', 'Россия');

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="957de313-d464-4b4f-8948-ade76175b1c4" activeEnvironment="Default" name="Test InvoiceRestController" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="02116436-0567-4a5f-8f90-6b196f2de4e9" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache/>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+        </con:endpoints>
+        <con:resource name="invoice" path="/rest/invoice" id="27ea2a0c-1884-43bc-aef9-00858b6664e3">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>name</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:resource name="filter" path="filter" id="ef26abbf-1351-4a78-90ae-8f9481809565">
+                <con:settings/>
+                <con:parameters/>
+                <con:method name="filterByName" id="0d139d38-c689-462c-af1c-f8de67d22fed" method="GET">
+                    <con:settings/>
+                    <con:parameters/>
+                    <con:representation type="RESPONSE">
+                        <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                        <con:status>200</con:status>
+                        <con:params/>
+                        <con:element>Response</con:element>
+                    </con:representation>
+                    <con:request name="Request 1" id="9600be04-0264-44d8-9708-35f4535402ec" mediaType="application/json">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request/>
+                        <con:originalUri>http://localhost/rest/invoice/filter</con:originalUri>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters>
+                            <entry key="name" value="ПАО ФЛЭКС" xmlns="http://eviware.com/soapui/config"/>
+                        </con:parameters>
+                        <con:parameterOrder>
+                            <con:entry>name</con:entry>
+                        </con:parameterOrder>
+                    </con:request>
+                </con:method>
+            </con:resource>
+            <con:method name="getAllInvoice" id="4a52ce07-69bd-4e8a-a3e4-0fb68ffd2d2f" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="FAULT">
+                    <con:mediaType>text/html;charset=utf-8</con:mediaType>
+                    <con:status>404</con:status>
+                    <con:params/>
+                    <con:element>html</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:rest="http://localhost/rest">rest:Fault</con:element></con:representation><con:request name="Request 1" id="b7d4f447-66d7-430e-b868-9c8511c75c28" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/rest</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="name" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>name</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="product" path="/rest/product" id="d3819813-7916-4a57-8840-291cce237110">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="getAllProduct" id="1dd2b221-8c7b-4b2a-91c3-77c5f90810da" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Request 1" id="77fd797e-0a56-483e-a9aa-d236f62e7262" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/rest/product</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="seller" path="/rest/seller" id="ebdf67ef-3d15-4d4a-85e1-0957586a1d88">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="getAllSeller" id="bd911166-c911-4de8-bb2c-4b9d8096133a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Request 1" id="9a30115c-a56e-40bf-9458-1b9ff9bdcfd0" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/rest/seller</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="customer" path="/rest/customer" id="78fb382f-b6a4-426e-ac95-5c7438ddbfb6">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="getAllCustomer" id="3cfd643c-7547-4fa0-9a36-f7fce6448327" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Request 1" id="9964315d-da3e-42f8-b284-34e0fdb65466" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/rest/customer</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+</con:soapui-project>

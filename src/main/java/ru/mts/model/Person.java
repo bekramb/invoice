@@ -1,36 +1,24 @@
 package ru.mts.model;
 
-public class Person {
-    Long id;
-    String firstName;
-    String lastName;
-    String street;
-    String postalCode;
-    String city;
-    String Country;
+import javax.persistence.*;
 
-    public Long getId() {
+@MappedSuperclass
+public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String street;
+    @Column(name = "postal_code")
+    private String postalCode;
+    private String city;
+    private String Country;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getStreet() {
