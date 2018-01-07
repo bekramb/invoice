@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "seller")
 @NamedQueries({
-        @NamedQuery(name = Seller.FIND_ALL, query = "SELECT s FROM Seller s"),
+        @NamedQuery(name = Seller.FIND_ALL, query = "SELECT s FROM Seller s ORDER BY s.id"),
 })
 public class Seller extends Person {
     public static final String FIND_ALL = "Seller.findAll";

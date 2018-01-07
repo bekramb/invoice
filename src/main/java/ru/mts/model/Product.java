@@ -8,13 +8,13 @@ import java.util.Set;
 @Entity
 @Table(name = "product")
 @NamedQueries({
-        @NamedQuery(name = Product.FIND_ALL, query = "SELECT p FROM Product p"),
+        @NamedQuery(name = Product.FIND_ALL, query = "SELECT p FROM Product p ORDER BY p.id"),
 })
 public class Product {
     public static final String FIND_ALL = "Product.findAll";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "name")
     private String name;
@@ -55,4 +55,13 @@ public class Product {
         this.vat = vat;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", vat=" + vat +
+                '}';
+    }
 }

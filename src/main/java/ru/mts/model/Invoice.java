@@ -11,8 +11,8 @@ import java.util.Set;
 @Entity
 @Table(name = "invoice")
 @NamedQueries({
-        @NamedQuery(name = Invoice.BY_NAME, query = "SELECT inv FROM Invoice inv  WHERE inv.seller.name=:name"),
-        @NamedQuery(name = Invoice.FIND_ALL, query = "SELECT inv FROM Invoice inv"),
+        @NamedQuery(name = Invoice.BY_NAME, query = "SELECT inv FROM Invoice inv  WHERE inv.seller.name=:name ORDER BY inv.id"),
+        @NamedQuery(name = Invoice.FIND_ALL, query = "SELECT inv FROM Invoice inv ORDER BY inv.id"),
 })
 public class Invoice {
 
@@ -20,7 +20,7 @@ public class Invoice {
     public static final String FIND_ALL = "Invoice.findAll";
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "invoice_date")
     private Date invoiceDate;
@@ -35,8 +35,8 @@ public class Invoice {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name = "item",
-            joinColumns={@JoinColumn(name = "invoice_id")},
-            inverseJoinColumns={@JoinColumn(name = "product_id")})
+            joinColumns = {@JoinColumn(name = "invoice_id")},
+            inverseJoinColumns = {@JoinColumn(name = "product_id")})
     private Set<Product> products = new HashSet<>();
 
     public Integer getId() {
@@ -86,6 +86,7 @@ public class Invoice {
                 ", invoiceDate=" + invoiceDate +
                 ", seller=" + seller +
                 ", customer=" + customer +
+                ", products=" + products +
                 '}';
     }
 }

@@ -5,7 +5,7 @@ import javax.persistence.*;
 @MappedSuperclass
 public class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String street;
     @Column(name = "postal_code")

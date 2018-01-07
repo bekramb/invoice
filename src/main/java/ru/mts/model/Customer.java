@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "customer")
 @NamedQueries({
-        @NamedQuery(name = Customer.FIND_ALL, query = "SELECT c FROM Customer c"),
+        @NamedQuery(name = Customer.FIND_ALL, query = "SELECT c FROM Customer c ORDER BY c.id"),
 })
 public class Customer extends Person {
     public static final String FIND_ALL = "Customer.findAll";
@@ -32,5 +32,4 @@ public class Customer extends Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
 }
