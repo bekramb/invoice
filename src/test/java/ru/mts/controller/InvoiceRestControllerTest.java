@@ -110,10 +110,10 @@ public class InvoiceRestControllerTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$[0].id").value("1"))
                 .andExpect(jsonPath("$[0].seller.name").value("ПАО ФЛЭКС"))
-                .andExpect(jsonPath("$[0].products").isNotEmpty())
+                .andExpect(jsonPath("$[0].items[0].product").isNotEmpty())
                 .andExpect(jsonPath("$[1].id").value("2"))
                 .andExpect(jsonPath("$[1].seller.name").value("ИП ИВАНОВ"))
-                .andExpect(jsonPath("$[1].products").isNotEmpty());
+                .andExpect(jsonPath("$[1].items[1].product").isNotEmpty());
     }
 
     @Test
@@ -121,8 +121,8 @@ public class InvoiceRestControllerTest {
         this.mockMvc.perform(get("/rest/invoice/filter?name=ИП ИВАНОВ")).andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$[0]seller.name").value("ИП ИВАНОВ"))
-                .andExpect(jsonPath("$[0].products").isNotEmpty())
+                .andExpect(jsonPath("$[0].items[0].product").isNotEmpty())
                 .andExpect(jsonPath("$[1].seller.name").value("ИП ИВАНОВ"))
-                .andExpect(jsonPath("$[1].products").isNotEmpty());
+                .andExpect(jsonPath("$[1].items[1].product").isNotEmpty());
     }
 }

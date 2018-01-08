@@ -2,15 +2,33 @@ package ru.mts.model;
 
 import javax.persistence.*;
 
+/**
+ * Базовый класс для классов клиента и поставщика
+ */
 @MappedSuperclass
-public class Person {
+public abstract class BaseEntity {
+    /**
+     * id сущности
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    /**
+     * Название улицы
+     */
     private String street;
+    /**
+     * Индекс
+     */
     @Column(name = "postal_code")
     private String postalCode;
+    /**
+     * Название города
+     */
     private String city;
+    /**
+     * Название страны
+     */
     private String Country;
 
     public Integer getId() {
@@ -51,5 +69,16 @@ public class Person {
 
     public void setCountry(String country) {
         Country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseEntity{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", city='" + city + '\'' +
+                ", Country='" + Country + '\'' +
+                '}';
     }
 }

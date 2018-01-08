@@ -2,8 +2,6 @@ package ru.mts.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -13,13 +11,25 @@ import java.util.Set;
 public class Product {
     public static final String FIND_ALL = "Product.findAll";
 
+    /**
+     * id продукта
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    /**
+     * Наименование продукта
+     */
     @Column(name = "name")
     private String name;
+    /**
+     * Цена продукта
+     */
     @Column(name = "price")
     private BigDecimal price;
+    /**
+     * Налог
+     */
     @Column(name = "vat")
     private Float vat;
 

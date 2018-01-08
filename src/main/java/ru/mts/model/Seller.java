@@ -10,9 +10,12 @@ import javax.persistence.Table;
 @NamedQueries({
         @NamedQuery(name = Seller.FIND_ALL, query = "SELECT s FROM Seller s ORDER BY s.id"),
 })
-public class Seller extends Person {
+public class Seller extends BaseEntity {
     public static final String FIND_ALL = "Seller.findAll";
 
+    /**
+     * Название поставщика
+     */
     private String name;
 
     public String getName() {
@@ -21,5 +24,12 @@ public class Seller extends Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "name='" + name + '\'' +
+                "} " + super.toString();
     }
 }

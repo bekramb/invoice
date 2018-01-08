@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Класс счета-фактуры
+ */
 @Entity
 @Table(name = "invoice")
 @NamedQueries({
@@ -19,25 +22,37 @@ public class Invoice {
     public static final String BY_NAME = "Invoice.getByName";
     public static final String FIND_ALL = "Invoice.findAll";
 
+    /**
+     * id счета-фактуры
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    /**
+     * Дата составления
+     */
     @Column(name = "invoice_date")
     private Date invoiceDate;
+    /**
+     * Данные поставщика
+     */
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "seller_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Seller seller;
+    /**
+     * Данные покупателя
+     */
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Customer customer;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    @JoinTable(name = "item",
-            joinColumns = {@JoinColumn(name = "invoice_id")},
-            inverseJoinColumns = {@JoinColumn(name = "product_id")})
-    private Set<Product> products = new HashSet<>();
+    /**
+     * Позиции в счете-фактуре
+     */
+    @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
+    private Set<Item> items = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -71,12 +86,12 @@ public class Invoice {
         this.seller = seller;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public Set<Item> getItems() {
+        return items;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setItems(Set<Item> items) {
+        this.items = items;
     }
 
     @Override
@@ -86,7 +101,7 @@ public class Invoice {
                 ", invoiceDate=" + invoiceDate +
                 ", seller=" + seller +
                 ", customer=" + customer +
-                ", products=" + products +
+                ", items=" + items +
                 '}';
     }
 }
